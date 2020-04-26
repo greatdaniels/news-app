@@ -27,5 +27,25 @@ def get_sources(category):
         if get_sources_response['sources']:
             sources_results_list = get_sources_response['sources']
             sources_results = process_results(sources_results_list)
-        return sources_results
 
+    return sources_results
+
+def process_results(sources_list):
+    '''
+    function that processes the sources results and transform them to a list of objects
+    '''
+    sources_results = []
+    for source_item in sources_list:
+        id = source_item.get('id')
+        category = source_item.get('category')
+        name = source_item.get('name')
+        description = source_item.get('description')
+        url = source_item.get('url')
+        language = source_item.get('language')
+        country = source_item.get('country')
+
+        if url:
+            source_object = Sources(id, name, description, url, category, language, country)
+            sources_results.append(source_object)
+
+    return sources_results
