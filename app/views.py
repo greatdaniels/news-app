@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request, url_for
 from app import app
 from .request import get_sources, get_articles
 
@@ -29,4 +29,4 @@ def articles(article):
     all_articles = get_articles(article)
 
     title = f'{article} | All Articles'
-    return render_template('articles.html', title = title, articles = all_articles, source = articles )
+    return render_template('articles.html', title = title, articles = all_articles, article = article )
