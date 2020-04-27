@@ -22,4 +22,6 @@ def articles(id):
     '''
     view articles page that returns article details
     '''
-    return render_template('articles.html', id = id)
+    all_articles = articles_source(id)
+    source = id
+    return render_template('articles.html', articles = all_articles, source = source)
