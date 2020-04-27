@@ -1,2 +1,12 @@
+{% extends 'base.html' %} 
+{% import 'macros.html' as macro%}
 
-<h1>Hello {{id}} </h1>
+<!-- content block -->
+{% block content %}
+<div class="container-fluid">
+    <div class="overlay">
+        {{ macro.display_news_articles(articles)}}
+    </div>
+    
+</div>
+{% endblock%}

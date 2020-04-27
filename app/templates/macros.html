@@ -8,9 +8,41 @@
                 </div>
                 <div class="col-md-7 source-details">
                     <p> {{source.description|truncate(100)}}</p>
-                    <a class="btn btn-default" >Read Articles</a>
+                    <a class="btn btn-default" href="/articles/{{source.id}}">Read Articles</a>
                 </div>
             </div>
         </div>
     {% endfor %}
+    
+{% endmacro %}
+
+
+{% macro display_news_articles(articles_results) %}
+
+<div class="container-fluid">
+    <div class="row mt">
+        <div class="col-md-12 text-center">
+            <h2> {{name|upper}} </h2>
+        </div>
+    </div>
+    <div class="row">
+        {% for article in articles_results %}
+        <div class="col-md-3 margin">
+            <a href="{{article.url}}" target="_blank">
+                <img src="{{article.urlToImage}}" alt="Image Loading..." class="img-responsive size">
+            </a>
+            <div>
+                <h4 class="text-bold"> {{article.title|truncate(60)}}</h4>
+                <p class="small">{{article.author}}</p>
+                <p class="small">Posted on {{article.publishedAt}}</p>
+                <hr>
+                <p>{{article.description|truncate(100)}}
+                    <a href="{{article.url}}" target="_blank">Read More</a>
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
 {% endmacro %}

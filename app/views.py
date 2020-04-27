@@ -21,13 +21,12 @@ def index():
     title = 'Home - News from Diverse sources'
     return render_template('index.html', title = title, general = general, business = business, sports =sports, tech = technology, science = science, health = health)
 
-@app.route('/articles/<id>')
-def articles(id):
+@app.route('/articles/<article>')
+def articles(article):
     '''
     view articles page that returns article details
     '''
-    all_articles = get_articles(id)
-    articles = id
+    all_articles = get_articles(article)
 
-    title = f'{articles} | All Articles'
+    title = f'{article} | All Articles'
     return render_template('articles.html', title = title, articles = all_articles, source = articles )
