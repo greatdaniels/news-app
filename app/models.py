@@ -1,3 +1,16 @@
+class Sources:
+    '''
+    Sources class defining each source object
+    '''
+    def __init__(self,id,name,description,url,category,language,country):
+        self.id = id
+        self.name = name
+        self.description = description
+        self.url = url
+        self.category = category
+        self.language = language
+        self.country = country
+
 class Articles:
     '''
     articles class to define articles object
@@ -10,3 +23,4 @@ class Articles:
         self.url = url
         self.urlToImage= urlToImage
         self.publishedAt = publishedAt
+
