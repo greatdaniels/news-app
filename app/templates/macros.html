@@ -1,6 +1,16 @@
 {% macro sourceCategory(sources_list) %}
 
     {% for source in sources_list %}
-        <li> {{ source.name }} </li>
+        <div class="col-md-3 card">
+            <div class="row mt">
+                <div class="col-md-5 source-name">
+                    <h4> {{source.name}} </h4>
+                </div>
+                <div class="col-md-7 source-details">
+                    <p> {{source.description|truncate(100)}}</p>
+                    <a class="btn btn-default" >Read Articles</a>
+                </div>
+            </div>
+        </div>
     {% endfor %}
 {% endmacro %}
