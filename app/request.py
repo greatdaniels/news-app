@@ -85,7 +85,8 @@ def process_articles(articles_list):
 
         publishedAt = datetime(year=int(date_published[0:4]), month=int(date_published[5:7]), day=int(date_published[8:10]), hour=int(date_published[11:13]), minute=int(date_published[14:16]))
 
-        article_object = Articles(source, author, title, description, url, urlToImage, publishedAt)
-        articles_results.append(article_object)
+        if urlToImage:
+            article_object = Articles(source, author, title, description, url, urlToImage, publishedAt)
+            articles_results.append(article_object)
 
     return articles_results
