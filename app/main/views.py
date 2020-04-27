@@ -1,9 +1,10 @@
 from flask import render_template, request, url_for
-from app import app
-from .request import get_sources, get_articles
+from . import main
+from ..models import Sources
+from ..request import get_sources, get_articles
 
 #views
-@app.route('/')
+@main.route('/')
 def index():
     '''
     view root page function returns index page
@@ -19,7 +20,7 @@ def index():
     title = 'Home - News from Diverse sources'
     return render_template('index.html', title = title, general = general, business = business, sports =sports, tech = technology, science = science)
 
-@app.route('/articles/<article>')
+@main.route('/articles/<article>')
 def articles(article):
     '''
     view articles page that returns article details
